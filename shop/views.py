@@ -29,3 +29,10 @@ def shop(request):
         'product':product
     }
     return render(request, 'shop.html', context)
+
+
+def single_product(request, slug):
+    context = {
+        
+    }
+    return render(request, 'single_product.html',context)

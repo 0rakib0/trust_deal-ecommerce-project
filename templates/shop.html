@@ -19,9 +19,11 @@ shop
                             <img src="{{i.Product_image.url}}" alt="">
                         </div>
                         <div>
-                            <h6>
-                                {{i.name|slice:":25"}}...
-                            </h6>
+                            <a href="{% url 'shop:single_product' slug=i.slug %}">
+                                <h6>
+                                    {{i.name|slice:":25"}}...
+                                </h6>
+                            </a>
                             <h6>
                                 Price:
                                 {% if i.discount_price == 0 %}
