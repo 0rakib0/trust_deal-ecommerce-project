@@ -69,12 +69,10 @@ body {
 
 #navbarSupportedContent {
   width: 100%;
-  background-color: #f9ece6;
+  box-shadow: 2px 8px 16px rgba(63, 63, 63, 0.438);
   -webkit-box-pack: center;
       -ms-flex-pack: center;
-          justify-content: center;
   padding: 10px 0;
-  border-radius: 15px 15px 0 0;
 }
 
 #navbarSupportedContent.innerpage_navbar {
@@ -855,15 +853,17 @@ a:focus {
 
 
 .product_img{
-  height: 15rem;
-  width: 15rem;
   overflow: hidden;
   transition: transform 3s;
 }
 
+.product_img img{
+  transform: scale(1.4);
+}
+
 .product_img:hover img{
   transition: transform 0.5s;
-  transform: scale(1.2);
+  transform: scale(1.5);
 }
 
 
