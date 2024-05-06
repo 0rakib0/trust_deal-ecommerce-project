@@ -851,6 +851,23 @@ a:focus {
 .footer_section a {
   color: #cbc9c9;
 }
+/* Product page custom design */
+
+
+.product_img{
+  height: 15rem;
+  width: 15rem;
+  overflow: hidden;
+  transition: transform 3s;
+}
+
+.product_img:hover img{
+  transition: transform 0.5s;
+  transform: scale(1.2);
+}
+
 
 /* end footer section*/
 /*# sourceMappingURL=style.css.map */
+
+

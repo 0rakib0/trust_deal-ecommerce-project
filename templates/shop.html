@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block title_block %}
+shop
+{% endblock title_block %}
+
+{% block body %}
+
+
+<section class="shop_section layout_padding">
+    <div class="container">
+        <div class="row">
+        {% if product %}
+        {% for i in product %}
+        <div class="col-sm-6 col-md-4 col-lg-3">
+            <div class="box">
+                <a href="">
+                    <div class="product_img">
+                        <img src="{{i.Product_image.url}}" width="100%" height="100%" alt="No Image Found">
+                    </div>
+                    <div class="pt-2 text-align-center">
+                        <h6>
+                            {{i.name}}
+                        </h6>
+                        <h6>
+                            Price:
+                            <span class="">
+                                $200&#2547;
+                            </span>
+                            <span class="ml-2"><del>$200&#2547;</del></span>
+                        </h6>
+                    </div>
+                    {% if i.is_new %}
+                    <div class="new">
+                        <span>
+                            New
+                        </span>
+                    </div>
+                    {% endif %}
+
+                </a>
+            </div>
+        </div>
+        {% endfor %}
+        {% else %}
+        <div class="alert alert-secondary mx-auto" style="width: 100%;text-align:center" role="alert">
+            Opps! sorry there no product with this releted category.
+          </div>
+        {% endif %}
+        </div>
+    </div>
+</section>
+
+{% endblock %}

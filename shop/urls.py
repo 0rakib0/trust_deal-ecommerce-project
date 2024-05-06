@@ -4,5 +4,6 @@ app_name = 'shop'
 
 
 urlpatterns = [
-    path('', views.home, name='home')
+    path('', views.home, name='home'),
+    path('shop/', views.shop, name='shop')
 ] 
