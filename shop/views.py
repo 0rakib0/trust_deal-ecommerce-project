@@ -32,7 +32,10 @@ def shop(request):
 
 
 def single_product(request, slug):
+    category = get_naviget_item()
+    data = Product.objects.get(slug=slug)
     context = {
-        
+        'category':category,
+        'data':data
     }
-    return render(request, 'single_product.html',context)
+    return render(request, 'single_product.html', context)
