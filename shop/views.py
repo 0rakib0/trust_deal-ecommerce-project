@@ -1,5 +1,6 @@
-from django.shortcuts import render
-from .models import Category, Product
+from django.shortcuts import render, redirect
+from .models import Category, Product, Order
+from django.contrib import messages
 # Create your views here.
 
 def get_naviget_item():
@@ -39,3 +40,33 @@ def single_product(request, slug):
         'data':data
     }
     return render(request, 'single_product.html', context)
+
+
+def confirm_order(request):
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        phone = request.POST.get('phone')
+        address = request.POST.get('address')
+        delivery_area = request.POST.get('delivery_area')
+        slug = request.POST.get('slug')
+        
+        items = Product.objects.get(slug=slug)
+        
+        order_info = Order (
+            customar_name = name,
+            phone_number = phone,
+            address = address,
+            location_area = delivery_area,
+            items = items
+        )
+        if delivery_area == 'Inside':
+            order_info.delivery_charge = 50
+        else:
+            order_info.delivery_charge = 100
+        
+        order_info.save()
+        messages.success(request, 'Your Order Successfully confirm')
+        return redirect('shop:home')
+        
+    else:
+        return redirect('shop:home')

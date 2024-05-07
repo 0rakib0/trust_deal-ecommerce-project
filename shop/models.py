@@ -44,10 +44,15 @@ class ProductMoreImage(models.Model):
     
     
 class Order(models.Model):
+    items = models.ForeignKey(Product, on_delete=models.DO_NOTHING)
+    quentity = models.IntegerField(default=1)
+    delivery_charge = models.IntegerField(default=0)
     customar_name = models.CharField(max_length=260)
     phone_number = models.CharField(max_length=20)
     address = models.TextField()
     location_area = models.CharField(max_length=200)
+    is_deliverd = models.BooleanField(default=False)
+    order_date = models.DateTimeField(auto_now_add=True)
     
     
     def __str__(self) -> str:
