@@ -9,35 +9,37 @@ shop
 <div class="layout_padding mx-5">
     <p>Home > {{data.name}}</p>
     <div class="row">
-        <div class="col">
+        <div class="col-12 col-lg-6">
             <div class="img_container border">
-                <img src="{{data.Product_image.url}}" alt="">
+                <img src="{{data.Product_image.url}}" width="100%" alt="">
             </div>
             <div class="image_galery">
                 <img src="" alt="">
             </div>
+            <div>
+                <h5>Image Gallery</h5>
+            </div>
         </div>
-        <div class="col">
+        <div class="col-12 col-lg-6">
             <h4>{{data.name}}</h4>
             <div class="pt-4 pb-2">
                 {% if data.quentity < 5 %}
-                    <span class="text-danger">{{data.quentity}} items available</span>
+                <span class="text-danger">{{data.quentity}} items available</span>
                 {% else %}
-                
                 {{data.quentity}} items available in stock
                 {% endif %}
             </div>
             <div class="price_box pb-4">
-                    {% if data.discount_price == 0 %}
-                    <span>
-                        {{data.regular_price}}&#2547;
-                    </span>
-                    {% else %}
-                    <span>
-                        {{data.discount_price}}&#2547;
-                        <del style="color: rgb(88, 88, 88);" class="ml-2">{{data.regular_price}}&#2547;</del>
-                    </span>
-                    {% endif %}
+                {% if data.discount_price == 0 %}
+                <span>
+                    {{data.regular_price}}&#2547;
+                </span>
+                {% else %}
+                <span>
+                    {{data.discount_price}}&#2547;
+                    <del style="color: rgb(88, 88, 88);" class="ml-2">{{data.regular_price}}&#2547;</del>
+                </span>
+                {% endif %}
             </div>
             <a href="#" class="btn btn-primary btn-md">Buy Product</a>
             <div class="mt-4">
@@ -46,6 +48,7 @@ shop
             </div>
         </div>
     </div>
+    
 </div>
 
 {% endblock %}
