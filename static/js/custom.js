@@ -29,5 +29,26 @@ $('.owl-carousel').owlCarousel({
 })
 
 
-// Order button toggle
+// my Custom functionality
 
+$('#increas_quantity').click(function(){
+    let qualtity = parseInt($('#quentity').val())
+    $('#minus_quantity').prop('disabled', false);
+    qualtity++;
+    $('#quentity').val(qualtity)
+    $('#item_quantity').val(qualtity)
+})
+
+$('#minus_quantity').click(function(){
+    let qualtity = parseInt($('#quentity').val())
+
+    if (qualtity > 1) { // Check if quantity is greater than 1
+        qualtity--; // Decrement the quantity by 1
+        $('#quentity').val(qualtity); // Set the updated quantity back to the input field
+        $('#item_quantity').val(qualtity)
+    }
+    if (qualtity === 1) {
+        $('#minus_quantity').prop('disabled', true);
+    }
+   
+})

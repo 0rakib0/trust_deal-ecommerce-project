@@ -49,6 +49,7 @@ def confirm_order(request):
         address = request.POST.get('address')
         delivery_area = request.POST.get('delivery_area')
         slug = request.POST.get('slug')
+        quantity = request.POST.get('quantity')
         
         items = Product.objects.get(slug=slug)
         
@@ -57,7 +58,8 @@ def confirm_order(request):
             phone_number = phone,
             address = address,
             location_area = delivery_area,
-            items = items
+            items = items,
+            quentity = quantity
         )
         if delivery_area == 'Inside':
             order_info.delivery_charge = 50

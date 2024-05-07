@@ -50,9 +50,13 @@ shop
                 </span>
                 {% endif %}
             </div>
+            <div class="py-2">
+                <label for="exampleInputEmail1">Quantity</label><br>
+                <button id="minus_quantity">-</button> <input type="text" style="width: 5rem;text-align:center" value="1" name="" id="quentity" readonly> <button id="increas_quantity">+</button>
+            </div>
             <p>
                 <a class="btn btn-primary" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">BUY NOW</a>
-              </p>
+            </p>
               <div class="row">
                 <div class="col">
                   <div class="collapse multi-collapse" id="multiCollapseExample1">
@@ -60,7 +64,8 @@ shop
                         <form method="POST" action="{% url 'shop:confirm_order' %}">
                             {% csrf_token %}
                             <div class="form-group">
-                                <input type="text" name="slug" value="{{data.slug}}" hidden><br>
+                                <input type="text" name="slug" value="{{data.slug}}" hidden readonly><br>
+                                <input type="text" name="quantity" value="1" id="item_quantity" readonly hidden><br>
                                 <label for="exampleInputEmail1">Full Name<span class="text-danger h4">*</span></label>
                                 <input type="text" class="form-control" name="name" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Full Name" required>
                               </div>
