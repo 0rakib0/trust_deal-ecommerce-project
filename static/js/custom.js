@@ -33,22 +33,32 @@ $('.owl-carousel').owlCarousel({
 
 $('#increas_quantity').click(function(){
     let qualtity = parseInt($('#quentity').val())
+    const productPrice = $('#price').text()
     $('#minus_quantity').prop('disabled', false);
     qualtity++;
     $('#quentity').val(qualtity)
     $('#item_quantity').val(qualtity)
+    $('#item_price').val(productPrice*qualtity)
 })
 
 $('#minus_quantity').click(function(){
     let qualtity = parseInt($('#quentity').val())
-
+    const productPrice = $('#price').text()
     if (qualtity > 1) { // Check if quantity is greater than 1
         qualtity--; // Decrement the quantity by 1
         $('#quentity').val(qualtity); // Set the updated quantity back to the input field
         $('#item_quantity').val(qualtity)
+        $('#item_price').val(productPrice*qualtity)
     }
     if (qualtity === 1) {
         $('#minus_quantity').prop('disabled', true);
     }
    
+})
+
+
+
+
+$('#add_to_card').click(function(){
+    
 })

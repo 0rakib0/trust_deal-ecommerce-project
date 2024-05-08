@@ -41,11 +41,11 @@ shop
             <div class="price_box pb-4">
                 {% if data.discount_price == 0 %}
                 <span>
-                    {{data.regular_price}}&#2547;
+                    <span id="price">{{data.regular_price}}</span>&#2547;
                 </span>
                 {% else %}
                 <span>
-                    {{data.discount_price}}&#2547;
+                    <span id="price">{{data.discount_price}}</span>&#2547;
                     <del style="color: rgb(88, 88, 88);" class="ml-2">{{data.regular_price}}&#2547;</del>
                 </span>
                 {% endif %}
@@ -55,20 +55,30 @@ shop
                 <button id="minus_quantity" style="border: none">-</button> <input type="text" style="width: 5rem;text-align:center" value="1" name="" id="quentity" readonly> <button id="increas_quantity" style="border: none">+</button>
             </div>
             <p>
+                
                 <a class="btn btn-primary" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">BUY NOW</a>
+                <button class="btn btn-primary" id="add_to_card">Add To Card</button>
             </p>
               <div class="row">
                 <div class="col">
                   <div class="collapse multi-collapse" id="multiCollapseExample1">
                     <div class="card card-body">
                         <form method="POST" action="{% url 'shop:confirm_order' %}">
+                            Please fillup this form
                             {% csrf_token %}
                             <div class="form-group">
                                 <input type="text" name="slug" value="{{data.slug}}" hidden readonly><br>
-                                <input type="text" name="quantity" value="1" id="item_quantity" readonly hidden><br>
+                                <label for="exampleInputEmail1">Quantity</label>
+                                <input type="text" class="form-control" name="quantity" value="1" id="item_quantity" readonly>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Totall Price<span class="text-danger h4">*</span></label>
+                                <input type="text" class="form-control" name="total_price" value="{% if data.discount_price == 0 %} {{data.regular_price}} {% else %} {{data.discount_price}} {% endif %}" id="item_price" readonly>
+                            </div>
+                            <div class="form-group">
                                 <label for="exampleInputEmail1">Full Name<span class="text-danger h4">*</span></label>
                                 <input type="text" class="form-control" name="name" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Full Name" required>
-                              </div>
+                            </div>
                             <div class="form-group">
                               <label for="exampleInputEmail1">Phone Number<span class="text-danger h4">*</span></label>
                               <input type="text" class="form-control" name="phone" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Phone Number" required>

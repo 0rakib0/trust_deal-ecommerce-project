@@ -46,6 +46,7 @@ class ProductMoreImage(models.Model):
 class Order(models.Model):
     items = models.ForeignKey(Product, on_delete=models.DO_NOTHING)
     quentity = models.IntegerField(default=1)
+    total_price = models.IntegerField()
     delivery_charge = models.IntegerField(default=0)
     customar_name = models.CharField(max_length=260)
     phone_number = models.CharField(max_length=20)
