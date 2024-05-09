@@ -27,6 +27,7 @@ class Product(models.Model):
     video_thumbnel = models.ImageField(upload_to='thumbnel', null=True, blank=True)
     video_id = models.CharField(max_length=260, null=True, blank=True)
     is_new = models.BooleanField(default=False)
+    is_featured = models.BooleanField(default=False)
     product_details = models.TextField()
     
     

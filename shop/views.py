@@ -7,13 +7,38 @@ def get_naviget_item():
     return Category.objects.all()
 
 def home(request):
-    
+    search_value = None
+    filter_value = request.GET.get('filter-product')
+    products = Product.objects.select_related('category')
+    feturd_product = products.filter(is_featured=True)
     category = get_naviget_item()
+    if filter_value:
+        search_value = products.filter(name__icontains=filter_value)
+    
     context = {
-        'category':category
+        'category':category,
+        'feturd_product':feturd_product,
+        'search_value':search_value
     }
 
     return render(request, 'home.html', context)
+
+
+def serach_items(request):
+    search_value = None
+    category = get_naviget_item()
+    products = Product.objects.select_related('category')
+    filter_value = request.GET.get('filter-product')
+    if filter_value:
+        search_value = products.filter(name__icontains=filter_value)
+        context = {
+            'search_value':search_value,
+            'category':category
+        }
+        return render(request, 'search_item.html', context)
+    else:
+        return redirect('shop:home')
+
 
 
 def shop(request):

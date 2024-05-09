@@ -10,8 +10,8 @@ shop
 <section class="shop_section layout_padding">
     <div class="container">
         <div class="row">
-            {% if product %}
-            {% for i in product %}
+            {% if search_value %}
+            {% for i in search_value %}
             <div class="col-sm-6 col-md-4 col-lg-3">
                 <div class="box shadow">
                     <a href="{% url 'shop:single_product' slug=i.slug %}">
@@ -50,7 +50,7 @@ shop
             </div>
             {% endfor %}
             {% else %}
-            <p>Opps! sorry no product found with this releted category.</p>
+            <p>Opps! sorry no product found with this search value.</p>
             {% endif %}
         </div>
     </div>
