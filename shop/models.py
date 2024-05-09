@@ -24,8 +24,11 @@ class Product(models.Model):
     regular_price = models.IntegerField(default=1)
     discount_price = models.IntegerField(default=0)
     Product_image = models.ImageField(upload_to='product')
-    video_thumbnel = models.ImageField(upload_to='thumbnel', null=True, blank=True)
-    video_id = models.CharField(max_length=260, null=True, blank=True)
+    product_more_image1 = models.ImageField(upload_to='more image', blank=True, null=True)
+    product_more_image2 = models.ImageField(upload_to='more image', blank=True, null=True)
+    product_more_image3 = models.ImageField(upload_to='more image', blank=True, null=True)
+    product_more_image4 = models.ImageField(upload_to='more image', blank=True, null=True)
+    video_id = models.URLField(max_length=600, null=True, blank=True)
     is_new = models.BooleanField(default=False)
     is_featured = models.BooleanField(default=False)
     product_details = models.TextField()
@@ -38,6 +41,7 @@ class Product(models.Model):
     
     def __str__(self) -> str:
         return self.name
+
     
 class ProductMoreImage(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
