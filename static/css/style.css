@@ -869,4 +869,30 @@ a:focus {
 /* end footer section*/
 /*# sourceMappingURL=style.css.map */
 
+.smallImage img{
+  width: 3.5rem;
+}
 
+.smallImage{
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  background-color: #1010101c;
+  overflow: scroll;
+  margin-top: 10px;
+  width: 100%;
+  
+}
+
+.fullImage {
+  overflow: hidden;
+  height: 30rem;
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 480px) {
+  .fullImage {
+    height: 10rem;
+  }
+}

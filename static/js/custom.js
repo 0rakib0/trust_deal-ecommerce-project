@@ -59,6 +59,12 @@ $('#minus_quantity').click(function(){
 
 
 
-$('#add_to_card').click(function(){
+// $('#add_to_card').click(function(){
     
-})
+// })
+
+function myFunction(smallImage){
+    let fullImage = document.getElementById('imageBox')
+    fullImage.src = smallImage.src
+}
+
