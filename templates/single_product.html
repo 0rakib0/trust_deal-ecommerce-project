@@ -6,7 +6,7 @@ shop
 
 {% block body %}
 
-<div class="layout_padding mx-5">
+<div class="layout_padding mx-5 ">
     <p>Home > {{data.name}}</p>
     <div class="row">
         <div class="col-12 col-lg-6">
@@ -104,6 +104,59 @@ shop
         <h5 class="mt-4">Product Video</h5>
         <iframe allow="fullscreen;" width="300rem" height="200rem" src="{{data.video_id}}">
         </iframe>
+    </div>
+</div>
+<div class="my-5 p-2">
+    <h4>Releted Product</h4>
+    <div class="owl-carousel owl-theme p-2" style="background-color: aliceblue;">
+        <div class="item">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="{{data.Product_image.url}}" alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+              </div>
+        </div>
+        <div class="item">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="{{data.Product_image.url}}" alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+              </div>
+        </div>
+        <div class="item">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="{{data.Product_image.url}}" alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+              </div>
+        </div>
+        <div class="item">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="{{data.Product_image.url}}" alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+              </div>
+        </div>
+        <div class="item">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="{{data.Product_image.url}}" alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+              </div>
+        </div>
+        <div class="item">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="{{data.Product_image.url}}" alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+              </div>
+        </div>
     </div>
 </div>
 

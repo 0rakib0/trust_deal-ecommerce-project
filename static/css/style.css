@@ -896,3 +896,24 @@ a:focus {
     height: 10rem;
   }
 }
+
+
+/* Custom owl carousol navigation */
+
+.owl-prev span{
+  color: rgb(219, 120, 6);
+  font-size: 4rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.owl-next span{
+  color: rgb(219, 120, 6);
+  font-size: 4rem;
+  border: none;
+  outline: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
