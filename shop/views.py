@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import Category, Product, Order
 from django.contrib import messages
+from django.shortcuts import get_object_or_404
 # Create your views here.
 
 def get_naviget_item():
@@ -59,10 +60,14 @@ def shop(request):
 
 def single_product(request, slug):
     category = get_naviget_item()
-    data = Product.objects.get(slug=slug)
+    data = get_object_or_404(Product, slug=slug)
+    product_category = data.category
+    releted_product = Product.objects.filter(category=product_category)
+    
     context = {
         'category':category,
-        'data':data
+        'data':data,
+        'releted_product':releted_product
     }
     return render(request, 'single_product.html', context)
 
