@@ -57,6 +57,16 @@ $('#minus_quantity').click(function(){
 })
 
 
+$('#exampleFormControlSelect1').change(function(){
+    const chargeValue = $('#exampleFormControlSelect1').val()
+    let charg = $('#dalivery-charge')
+    if (chargeValue == 'Inside'){
+        charg.val(50)
+    }else{
+        charg.val(100)
+    }  
+});
+
 
 
 // $('#add_to_card').click(function(){
